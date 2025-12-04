@@ -5,13 +5,448 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products - BloomShop</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Copy the entire <style> section from index.html -->
     <style>
-        /* Paste the entire CSS from index.html here */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #ff6b8b;
+            --secondary: #6a5af9;
+            --accent: #00d4aa;
+            --light: #f8f9fa;
+            --dark: #333;
+            --gradient: linear-gradient(135deg, #ff6b8b, #6a5af9, #00d4aa);
+        }
+        
+        body {
+            background-color: #f5f7ff;
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--gradient);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: 800;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 32px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .cart-icon {
+            position: relative;
+            color: white;
+            font-size: 24px;
+            margin-left: 20px;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent);
+            color: white;
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Products Page Specific */
+        .products-header {
+            padding: 80px 0;
+            background: var(--gradient);
+            border-radius: 0 0 40px 40px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: white;
+        }
+        
+        .products-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .products-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--secondary);
+            font-size: 2.5rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            background: var(--gradient);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        
+        .filter-section {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            background: linear-gradient(white, white) padding-box,
+                        var(--gradient) border-box;
+            border-width: 3px;
+            border-style: solid;
+        }
+        
+        .filter-section h3 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .filter-section h3 i {
+            color: var(--primary);
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+        
+        .filter-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            background: white;
+            color: var(--dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236a5af9' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            background-size: 16px;
+        }
+        
+        .filter-group select:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(106, 90, 249, 0.2);
+        }
+        
+        .filter-group select:hover {
+            border-color: var(--primary);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary);
+        }
+        
+        .product-img {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4.5rem;
+        }
+        
+        .product-info {
+            padding: 25px;
+        }
+        
+        .product-title {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--dark);
+            font-weight: 700;
+        }
+        
+        .product-price {
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .product-price:before {
+            content: '$';
+            font-size: 1.4rem;
+            color: var(--secondary);
+        }
+        
+        .product-rating {
+            color: #ffc107;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--gradient);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: white;
+            bottom: -8px;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .products-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .filter-options {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .products-header {
+                padding: 50px 0;
+            }
+            
+            .products-header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .product-card {
+                margin: 0 10px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Header (same as index.html) -->
+    <!-- Header -->
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">
@@ -40,10 +475,11 @@
         </div>
     </section>
 
-    <!-- Filter Section -->
-    <section class="container">
-        <div class="filter-section">
-            <h3>Filter Products</h3>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <h3><i class="fas fa-filter"></i> Filter Products</h3>
             <div class="filter-options">
                 <div class="filter-group">
                     <label for="category">Category</label>
@@ -76,14 +512,14 @@
                     </select>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Products Grid -->
         <h2 class="section-title">All Products</h2>
         <div class="products-grid">
             <!-- Product 1 -->
             <div class="product-card">
-                <div class="product-img" style="background-color: #ffe6f2;">
+                <div class="product-img" style="background: linear-gradient(135deg, #ffccd5, #ff8fab);">
                     <i class="fas fa-tshirt"></i>
                 </div>
                 <div class="product-info">
@@ -95,14 +531,14 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <p class="product-price">$24.99</p>
+                    <p class="product-price">24.99</p>
                     <a href="payment.html" class="btn btn-primary">Add to Cart</a>
                 </div>
             </div>
             
             <!-- Product 2 -->
             <div class="product-card">
-                <div class="product-img" style="background-color: #e6f7ff;">
+                <div class="product-img" style="background: linear-gradient(135deg, #a3bded, #6991c7);">
                     <i class="fas fa-headphones"></i>
                 </div>
                 <div class="product-info">
@@ -114,14 +550,14 @@
                         <i class="fas fa-star"></i>
                         <i class="far fa-star"></i>
                     </div>
-                    <p class="product-price">$89.99</p>
+                    <p class="product-price">89.99</p>
                     <a href="payment.html" class="btn btn-primary">Add to Cart</a>
                 </div>
             </div>
             
             <!-- Product 3 -->
             <div class="product-card">
-                <div class="product-img" style="background-color: #f0ffe6;">
+                <div class="product-img" style="background: linear-gradient(135deg, #a8edea, #fed6e3);">
                     <i class="fas fa-mug-hot"></i>
                 </div>
                 <div class="product-info">
@@ -133,14 +569,14 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="product-price">$34.99</p>
+                    <p class="product-price">34.99</p>
                     <a href="payment.html" class="btn btn-primary">Add to Cart</a>
                 </div>
             </div>
             
             <!-- Product 4 -->
             <div class="product-card">
-                <div class="product-img" style="background-color: #fff0e6;">
+                <div class="product-img" style="background: linear-gradient(135deg, #ffd6a5, #ffadad);">
                     <i class="fas fa-sun"></i>
                 </div>
                 <div class="product-info">
@@ -152,14 +588,14 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <p class="product-price">$29.99</p>
+                    <p class="product-price">29.99</p>
                     <a href="payment.html" class="btn btn-primary">Add to Cart</a>
                 </div>
             </div>
             
             <!-- Product 5 -->
             <div class="product-card">
-                <div class="product-img" style="background-color: #f9f0ff;">
+                <div class="product-img" style="background: linear-gradient(135deg, #cdb4db, #ffc8dd);">
                     <i class="fas fa-palette"></i>
                 </div>
                 <div class="product-info">
@@ -171,14 +607,14 @@
                         <i class="fas fa-star"></i>
                         <i class="far fa-star"></i>
                     </div>
-                    <p class="product-price">$45.99</p>
+                    <p class="product-price">45.99</p>
                     <a href="payment.html" class="btn btn-primary">Add to Cart</a>
                 </div>
             </div>
             
             <!-- Product 6 -->
             <div class="product-card">
-                <div class="product-img" style="background-color: #e6fffa;">
+                <div class="product-img" style="background: linear-gradient(135deg, #bde0fe, #a2d2ff);">
                     <i class="fas fa-couch"></i>
                 </div>
                 <div class="product-info">
@@ -190,14 +626,52 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="product-price">$39.99</p>
+                    <p class="product-price">39.99</p>
+                    <a href="payment.html" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+            
+            <!-- Product 7 -->
+            <div class="product-card">
+                <div class="product-img" style="background: linear-gradient(135deg, #ffafcc, #ffc8dd);">
+                    <i class="fas fa-shoe-prints"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Bright Running Shoes</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="product-price">79.99</p>
+                    <a href="payment.html" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+            
+            <!-- Product 8 -->
+            <div class="product-card">
+                <div class="product-img" style="background: linear-gradient(135deg, #ccd5ae, #e9edc9);">
+                    <i class="fas fa-backpack"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Colorful Backpack</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="product-price">49.99</p>
                     <a href="payment.html" class="btn btn-primary">Add to Cart</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Footer (same as index.html) -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -217,7 +691,7 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="products.html">Products</a></li>
                         <li><a href="payment.html">Cart</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -237,10 +711,37 @@
     </footer>
 
     <script>
-        // Copy the JavaScript from index.html
+        // Filter functionality
         document.querySelectorAll('.filter-group select').forEach(select => {
             select.addEventListener('change', function() {
-                alert('Filter applied! Showing ' + this.value + ' products.');
+                const filterText = `Showing ${this.value.toLowerCase()} products`;
+                alert(filterText);
+                
+                // Add visual feedback
+                this.style.borderColor = 'var(--primary)';
+                this.style.boxShadow = '0 0 0 3px rgba(255, 107, 139, 0.2)';
+                
+                setTimeout(() => {
+                    this.style.borderColor = '';
+                    this.style.boxShadow = '';
+                }, 1000);
+            });
+        });
+        
+        // Product card hover effects
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const btn = this.querySelector('.btn-primary');
+                if (btn) {
+                    btn.style.transform = 'scale(1.05)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                const btn = this.querySelector('.btn-primary');
+                if (btn) {
+                    btn.style.transform = '';
+                }
             });
         });
         
