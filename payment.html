@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - BloomShop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Copy the entire <style> section from index.html -->
+    <style>
+        /* Paste the entire CSS from index.html here */
+    </style>
+</head>
+<body>
+    <!-- Header (same as index.html) -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-store"></i> BloomShop
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="payment.html" class="active">Cart</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="payment.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">3</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Payment Header -->
+    <section class="products-header">
+        <div class="container">
+            <h1>Checkout</h1>
+            <p>Complete your purchase with our secure payment process.</p>
+        </div>
+    </section>
+
+    <!-- Payment Content -->
+    <div class="container payment-container">
+        <!-- Payment Form -->
+        <div class="payment-form">
+            <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">Payment Details</h2>
+            
+            <form id="paymentForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" required placeholder="John Doe">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="john@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Shipping Address</label>
+                    <textarea id="address" rows="3" required placeholder="123 Main St, City, Country"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" id="cardNumber" required placeholder="1234 5678 9012 3456">
+                </div>
+                
+                <div class="form-group" style="display: flex; gap: 20px;">
+                    <div style="flex: 1;">
+                        <label for="expiry">Expiry Date</label>
+                        <input type="text" id="expiry" required placeholder="MM/YY">
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" required placeholder="123">
+                    </div>
+                </div>
+                
+                <h3 style="margin: 30px 0 15px; color: var(--secondary);">Select Payment Method</h3>
+                <div class="payment-methods">
+                    <div class="payment-method active">
+                        <i class="fab fa-cc-visa"></i>
+                        <p>Visa</p>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fab fa-cc-mastercard"></i>
+                        <p>Mastercard</p>
+                    </div>
+                    <div class="payment-method">
+                        <i class="fab fa-cc-paypal"></i>
+                        <p>PayPal</p>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 30px; padding: 16px;">
+                    Complete Purchase
+                </button>
+            </form>
+        </div>
+        
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">Order Summary</h2>
+            
+            <div class="order-item">
+                <div>
+                    <h4>Colorful Summer T-Shirt</h4>
+                    <p>Size: M | Color: Rainbow</p>
+                </div>
+                <div>
+                    <p>$24.99</p>
+                </div>
+            </div>
+            
+            <div class="order-item">
+                <div>
+                    <h4>Wireless Rainbow Headphones</h4>
+                    <p>Color: Multicolor</p>
+                </div>
+                <div>
+                    <p>$89.99</p>
+                </div>
+            </div>
+            
+            <div class="order-item">
+                <div>
+                    <h4>Artistic Ceramic Mug Set</h4>
+                    <p>Set of 4</p>
+                </div>
+                <div>
+                    <p>$34.99</p>
+                </div>
+            </div>
+            
+            <div class="order-item">
+                <div>
+                    <h4>Shipping</h4>
+                    <p>Standard Delivery (5-7 days)</p>
+                </div>
+                <div>
+                    <p>$5.99</p>
+                </div>
+            </div>
+            
+            <div class="order-item">
+                <div>
+                    <h4>Tax</h4>
+                </div>
+                <div>
+                    <p>$9.50</p>
+                </div>
+            </div>
+            
+            <div class="order-total">
+                <div>
+                    <h3>Total</h3>
+                </div>
+                <div>
+                    <h3>$165.46</h3>
+                </div>
+            </div>
+            
+            <div style="background-color: #f0f8ff; padding: 20px; border-radius: 10px; margin-top: 30px;">
+                <h4 style="color: var(--secondary); margin-bottom: 10px;"><i class="fas fa-shield-alt"></i> Secure Checkout</h4>
+                <p style="font-size: 0.9rem;">Your payment information is encrypted and secure. We don't store your credit card details.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (same as index.html) -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>BloomShop</h3>
+                    <p>Bringing color and joy to your everyday life with our vibrant collection of products.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="payment.html">Cart</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 BloomShop. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ff6b8b;"></i> for colorful living</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Payment method selection
+        document.querySelectorAll('.payment-method').forEach(method => {
+            method.addEventListener('click', function() {
+                document.querySelectorAll('.payment-method').forEach(m => {
+                    m.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Form submission
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real application, you would process the payment here
+            // For this demo, we'll redirect to the thank you page
+            window.location.href = 'thankyou.html';
+        });
+        
+        // Update cart count
+        function updateCartCount() {
+            const cartCount = document.querySelector('.cart-count');
+            if (cartCount) {
+                cartCount.textContent = 3; // Fixed for checkout page
+            }
+        }
+        
+        updateCartCount();
+    </script>
+</body>
+</html>
