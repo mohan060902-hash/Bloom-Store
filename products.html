@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - BloomShop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Copy the entire <style> section from index.html -->
+    <style>
+        /* Paste the entire CSS from index.html here */
+    </style>
+</head>
+<body>
+    <!-- Header (same as index.html) -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-store"></i> BloomShop
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="payment.html">Cart</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="payment.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">3</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Products Header -->
+    <section class="products-header">
+        <div class="container">
+            <h1>Our Colorful Collection</h1>
+            <p>Explore our vibrant range of products designed to bring joy to your everyday life.</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="container">
+        <div class="filter-section">
+            <h3>Filter Products</h3>
+            <div class="filter-options">
+                <div class="filter-group">
+                    <label for="category">Category</label>
+                    <select id="category">
+                        <option>All Categories</option>
+                        <option>Fashion</option>
+                        <option>Electronics</option>
+                        <option>Home & Living</option>
+                        <option>Accessories</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="price">Price Range</label>
+                    <select id="price">
+                        <option>All Prices</option>
+                        <option>Under $25</option>
+                        <option>$25 - $50</option>
+                        <option>$50 - $100</option>
+                        <option>Over $100</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="color">Color</label>
+                    <select id="color">
+                        <option>All Colors</option>
+                        <option>Rainbow</option>
+                        <option>Pastel</option>
+                        <option>Bright</option>
+                        <option>Neon</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <h2 class="section-title">All Products</h2>
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img" style="background-color: #ffe6f2;">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Colorful Summer T-Shirt</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="product-price">$24.99</p>
+                    <a href="payment.html" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img" style="background-color: #e6f7ff;">
+                    <i class="fas fa-headphones"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Wireless Rainbow Headphones</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="product-price">$89.99</p>
+                    <a href="payment.html" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img" style="background-color: #f0ffe6;">
+                    <i class="fas fa-mug-hot"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Artistic Ceramic Mug Set</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="product-price">$34.99</p>
+                    <a href="payment.html" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-img" style="background-color: #fff0e6;">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Rainbow Beach Towel</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="product-price">$29.99</p>
+                    <a href="payment.html" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-img" style="background-color: #f9f0ff;">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Artist Watercolor Set</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="product-price">$45.99</p>
+                    <a href="payment.html" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-img" style="background-color: #e6fffa;">
+                    <i class="fas fa-couch"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Colorful Throw Pillow Set</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="product-price">$39.99</p>
+                    <a href="payment.html" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>BloomShop</h3>
+                    <p>Bringing color and joy to your everyday life with our vibrant collection of products.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="payment.html">Cart</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 BloomShop. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ff6b8b;"></i> for colorful living</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Copy the JavaScript from index.html
+        document.querySelectorAll('.filter-group select').forEach(select => {
+            select.addEventListener('change', function() {
+                alert('Filter applied! Showing ' + this.value + ' products.');
+            });
+        });
+        
+        // Update cart count
+        function updateCartCount() {
+            const cartCount = document.querySelector('.cart-count');
+            if (cartCount) {
+                cartCount.textContent = Math.floor(Math.random() * 5) + 1;
+            }
+        }
+        
+        updateCartCount();
+    </script>
+</body>
+</html>
