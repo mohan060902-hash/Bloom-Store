@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - BloomShop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Copy the entire <style> section from index.html -->
+    <style>
+        /* Paste the entire CSS from index.html here */
+    </style>
+</head>
+<body>
+    <!-- Header (same as index.html) -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-store"></i> BloomShop
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="payment.html">Cart</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="payment.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Thank You Content -->
+    <div class="container thankyou-container">
+        <div class="thankyou-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        
+        <h1>Thank You For Your Order!</h1>
+        
+        <p>Your order has been successfully placed and is being processed. You will receive a confirmation email shortly with your order details and tracking information.</p>
+        
+        <div class="order-details">
+            <h3 style="color: var(--secondary); margin-bottom: 20px;">Order Details</h3>
+            <div class="order-item">
+                <div>
+                    <p><strong>Order Number:</strong></p>
+                </div>
+                <div>
+                    <p>BS-2023-78945</p>
+                </div>
+            </div>
+            <div class="order-item">
+                <div>
+                    <p><strong>Order Date:</strong></p>
+                </div>
+                <div>
+                    <p>October 15, 2023</p>
+                </div>
+            </div>
+            <div class="order-item">
+                <div>
+                    <p><strong>Total Amount:</strong></p>
+                </div>
+                <div>
+                    <p>$165.46</p>
+                </div>
+            </div>
+            <div class="order-item">
+                <div>
+                    <p><strong>Estimated Delivery:</strong></p>
+                </div>
+                <div>
+                    <p>October 22-24, 2023</p>
+                </div>
+            </div>
+            <div class="order-item">
+                <div>
+                    <p><strong>Shipping Address:</strong></p>
+                </div>
+                <div>
+                    <p>123 Main St, Rainbow City, RC 12345</p>
+                </div>
+            </div>
+        </div>
+        
+        <p style="margin: 30px 0;">We'll send you shipping confirmation as soon as your order is on its way!</p>
+        
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <a href="products.html" class="btn" style="background-color: var(--secondary);">
+                Continue Shopping
+            </a>
+            <a href="index.html" class="btn btn-primary">
+                Back to Home
+            </a>
+        </div>
+        
+        <div style="margin-top: 50px; padding: 20px; background-color: #f9f9ff; border-radius: 10px;">
+            <h4 style="color: var(--secondary); margin-bottom: 10px;"><i class="fas fa-question-circle"></i> Need Help?</h4>
+            <p>If you have any questions about your order, please contact our customer service team at <strong>support@bloomshop.com</strong> or call <strong>+1 (555) 123-4567</strong>.</p>
+        </div>
+    </div>
+
+    <!-- Footer (same as index.html) -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>BloomShop</h3>
+                    <p>Bringing color and joy to your everyday life with our vibrant collection of products.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="payment.html">Cart</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 BloomShop. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ff6b8b;"></i> for colorful living</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update cart count to 0 for thank you page
+        function updateCartCount() {
+            const cartCount = document.querySelector('.cart-count');
+            if (cartCount) {
+                cartCount.textContent = 0;
+            }
+        }
+        
+        updateCartCount();
+    </script>
+</body>
+</html>
